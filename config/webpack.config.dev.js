@@ -11,6 +11,7 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
+const proxy = require('http-proxy-middleware')
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -267,4 +268,15 @@ module.exports = {
   performance: {
     hints: false,
   },
+  devServer: {
+    host: 'localhost',
+    port: '3000',
+    proxy: [
+        {
+          context: '/login',
+            target: 'http://irm.bluefocus.com/Admin/Public/login',
+            secure: false
+        }
+    ]
+  }
 };

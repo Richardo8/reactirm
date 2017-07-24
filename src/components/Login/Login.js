@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Icon, Input, Button } from 'antd';
 import './Login.css'
 const FormItem = Form.Item;
 
@@ -9,6 +9,9 @@ class NormalLoginForm extends React.Component {
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
+                fetch('/login', values).then(function (data) {
+                    console.log(data);
+                })
             }
         });
     }
@@ -31,12 +34,12 @@ class NormalLoginForm extends React.Component {
                     )}
                 </FormItem>
                 <FormItem>
-                    {getFieldDecorator('remember', {
-                        valuePropName: 'checked',
-                        initialValue: true,
-                    })(
-                        <Checkbox>Remember me</Checkbox>
-                    )}
+                    {/*{getFieldDecorator('remember', {*/}
+                        {/*valuePropName: 'checked',*/}
+                        {/*initialValue: true,*/}
+                    {/*})(*/}
+                        {/*<Checkbox>Remember me</Checkbox>*/}
+                    {/*)}*/}
                     <Button type="primary" htmlType="submit" className="login-form-button">
                         Log in
                     </Button>
