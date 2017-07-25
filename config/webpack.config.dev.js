@@ -276,7 +276,13 @@ module.exports = {
           context: '/login',
             target: 'http://irm.bluefocus.com/Admin/Public/login',
             secure: false
-        }
+        },
+        {
+          context: '/getUser',
+            target: 'http://irm.bluefocus.com/Admin/Account/usergroup',
+            secure: false
+        },
+
     ]
   }
 };

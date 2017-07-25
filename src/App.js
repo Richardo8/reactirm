@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import WrappedNormalLoginForm from './components/Login/Login'
+// import WrappedNormalLoginForm from './components/Login/Login'
+import UserList from './components/List/UserList/UserList'
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-          <WrappedNormalLoginForm/>
+          <UserList />
       </div>
     );
   }

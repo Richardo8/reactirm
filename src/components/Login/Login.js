@@ -20,14 +20,14 @@ class NormalLoginForm extends React.Component {
         return (
             <Form onSubmit={this.handleSubmit} className="login-form">
                 <FormItem>
-                    {getFieldDecorator('userName', {
+                    {getFieldDecorator('u', {
                         rules: [{ required: true, message: 'Please input your username!' }],
                     })(
                         <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="Username" />
                     )}
                 </FormItem>
                 <FormItem>
-                    {getFieldDecorator('password', {
+                    {getFieldDecorator('p', {
                         rules: [{ required: true, message: 'Please input your Password!' }],
                     })(
                         <Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="Password" />
