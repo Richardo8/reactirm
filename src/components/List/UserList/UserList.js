@@ -103,7 +103,7 @@ class UserList extends React.Component {
             onSelection: this.onSelection,
         };
         return (
-            <Table rowSelection={rowSelection} columns={columns} dataSource={this.state.data} />
+            <Table rowKey="uid" rowSelection={rowSelection} columns={columns} dataSource={this.state.data} />
         );
     }
 }

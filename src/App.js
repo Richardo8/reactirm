@@ -2,12 +2,26 @@ import React, { Component } from 'react';
 // import WrappedNormalLoginForm from './components/Login/Login'
 import UserList from './components/List/UserList/UserList'
 import './App.css';
+import ThisMenu from "./components/Menu/Menu";
+import { Layout } from 'antd';
+const { Header, Sider, Content } = Layout;
+
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-          <UserList />
+        <Layout>
+          <Header>Header</Header>
+          <Layout>
+            <Sider width={250}>
+              <ThisMenu/>
+            </Sider>
+            <Content>
+              <UserList />
+            </Content>
+          </Layout>
+        </Layout>
       </div>
     );
   }
