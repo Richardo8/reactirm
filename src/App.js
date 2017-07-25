@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import UserList from './components/List/UserList/UserList'
 import './App.css';
 import ThisMenu from "./components/Menu/Menu";
+import SearchBar from "./components/Search/SearchBar";
 import { Layout } from 'antd';
 const { Header, Sider, Content } = Layout;
 
@@ -18,6 +19,7 @@ class App extends Component {
               <ThisMenu/>
             </Sider>
             <Content>
+              <SearchBar />
               <UserList />
             </Content>
           </Layout>
