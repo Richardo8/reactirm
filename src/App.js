@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import WrappedNormalLoginForm from './components/Login/Login'
 // import UserList from './components/List/UserList/UserList'
+import { BrowserRouter as Router } from 'react-router-dom'
 import './App.css';
 import ThisMenu from "./components/Menu/Menu";
 import Routes from './Route/Routes'
@@ -13,17 +14,20 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Layout>
-          <Header>Header</Header>
+        <Router>
           <Layout>
-            <Sider width={250}>
-              <ThisMenu/>
-            </Sider>
-            <Content>
-              <Routes/>
-            </Content>
+            <Header>Header</Header>
+            <Layout>
+              <Sider width={250}>
+                <ThisMenu/>
+              </Sider>
+              <Content>
+                <Routes/>
+              </Content>
+            </Layout>
           </Layout>
-        </Layout>
+        </Router>
+
       </div>
     );
   }

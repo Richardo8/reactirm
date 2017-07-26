@@ -7,12 +7,10 @@ import UserListPage from "../components/Page/UserListPage";
 export default class Routes extends React.Component {
     render(){
         return (
-            <Router>
                 <div>
                     <Route exact path="/" component={Index}/>
                     <Route path="/userlist" component={UserListPage}/>
                 </div>
-            </Router>
         )
     }
 }
