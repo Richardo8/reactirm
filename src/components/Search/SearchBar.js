@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Row, Col, Input, Button, Icon } from 'antd';
+import { Form, Row, Col, Input, Button } from 'antd';
 import './SearchBar.css'
 // import moment from 'moment';
 import { DatePicker } from 'antd';
@@ -52,8 +52,8 @@ class AdvancedSearchForm extends React.Component {
             );
         }
 
-        const expand = this.state.expand;
-        const shownCount = expand ? children.length : 6;
+        // const expand = this.state.expand;
+        // const shownCount = expand ? children.length : 6;
         return (
             <Form
                 className="ant-advanced-search-form"

@@ -33,9 +33,9 @@ const columns = [{
     title: '操作',
     render: () => (
         <span>
-            <a href="#">分组</a>
+            <a href="/userlist">分组</a>
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="#">分组详细</a>
+            <a href="/userlist">分组详细</a>
         </span>
     ),
 }];
