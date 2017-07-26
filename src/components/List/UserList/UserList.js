@@ -1,6 +1,5 @@
 import React from 'react';
 import { Table } from 'antd';
-// import Data from '/public/userData/UserData.json'
 
 const columns = [{
     title: 'UID',

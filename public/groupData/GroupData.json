@@ -1,0 +1,32 @@
+{
+  "data": [
+    {
+      "groupname": "a",
+      "usernum": 8
+    },
+    {
+      "groupname": "b",
+      "usernum": 5
+    },
+    {
+      "groupname": "c",
+      "usernum": 3
+    },
+    {
+      "groupname": "d",
+      "usernum": 5
+    },
+    {
+      "groupname": "asdf",
+      "usernum": 2
+    },
+    {
+      "groupname": "asdf",
+      "usernum": 7
+    },
+    {
+      "groupname": "basdf",
+      "usernum": 4
+    }
+  ]
+}

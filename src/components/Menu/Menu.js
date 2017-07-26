@@ -26,7 +26,6 @@ class ThisMenu extends React.Component {
         if (latestCloseKey) {
             nextOpenKeys = this.getAncestorKeys(latestCloseKey);
         }
-        console.log(nextOpenKeys)
         this.setState({ openKeys: nextOpenKeys });
     }
     getAncestorKeys = (key) => {
@@ -48,7 +47,7 @@ class ThisMenu extends React.Component {
                     >
                         <SubMenu key="sub1" title={<span><Icon type="mail" /><span>用户管理</span></span>}>
                             <Menu.Item key="1"><Link to="/userlist">用户管理</Link></Menu.Item>
-                            <Menu.Item key="2">分组管理</Menu.Item>
+                            <Menu.Item key="2"><Link to="/grouplist">分组管理</Link></Menu.Item>
                             <Menu.Item key="3">违章查询</Menu.Item>
                         </SubMenu>
                         <SubMenu key="sub2" title={<span><Icon type="mail" /><span>微信管理</span></span>}>
