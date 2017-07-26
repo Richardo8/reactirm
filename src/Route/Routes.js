@@ -1,7 +1,7 @@
 import React from 'react'
 import { HashRouter as Router, Route } from 'react-router-dom'
-import UserList from "../components/List/UserList/UserList";
-import SearchBar from "../components/Search/SearchBar";
+import Index from "../components/Index/Index";
+import UserListPage from "../components/Page/UserListPage";
 
 
 export default class Routes extends React.Component {
@@ -9,8 +9,8 @@ export default class Routes extends React.Component {
         return (
             <Router>
                 <div>
-                    <Route path="/userlist" component={SearchBar}/>
-                    <Route exact path="/" component={UserList}/>
+                    <Route exact path="/" component={Index}/>
+                    <Route path="/userlist" component={UserListPage}/>
                 </div>
             </Router>
         )
