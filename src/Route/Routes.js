@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import Index from "../components/Index/Index";
 import UserListPage from "../components/Page/UserListPage";
 

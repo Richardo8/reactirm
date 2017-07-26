@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 // import UserList from "../List/UserList/UserList";
 
 import { Menu, Icon } from 'antd';
@@ -26,11 +26,11 @@ class ThisMenu extends React.Component {
         if (latestCloseKey) {
             nextOpenKeys = this.getAncestorKeys(latestCloseKey);
         }
+        console.log(nextOpenKeys)
         this.setState({ openKeys: nextOpenKeys });
     }
     getAncestorKeys = (key) => {
         const map = {
-            sub3: ['sub2'],
         };
         return map[key] || [];
     }
@@ -56,7 +56,7 @@ class ThisMenu extends React.Component {
                             <Menu.Item key="5">群发消息记录</Menu.Item>
                             <Menu.Item key="6">素材管理</Menu.Item>
                         </SubMenu>
-                        <SubMenu key="sub3" title={<span><Icon type="setting" /><span>文章管理</span></span>}>
+                        <SubMenu key="sub3" title={<span><Icon type="mail" /><span>文章管理</span></span>}>
                             <Menu.Item key="7">文章管理</Menu.Item>
                             <Menu.Item key="8">原文管理</Menu.Item>
                         </SubMenu>
