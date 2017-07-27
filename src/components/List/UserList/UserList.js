@@ -55,7 +55,6 @@ class UserList extends React.Component {
     async getData() {
         let data = await fetch('/userData/UserData.json');
         let dataJson = await data.json();
-        console.log(dataJson.data);
         this.setState({ data: dataJson.data});
     }
 
