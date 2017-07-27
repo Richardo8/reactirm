@@ -39,7 +39,7 @@ class GroupList extends React.Component {
     }
 
     render() {
-        const { selectedRowKeys, data } = this.state;
+        const { selectedRowKeys } = this.state;
         const rowSelection = {
             selectedRowKeys,
             onChange: this.onSelectChange,
@@ -80,14 +80,8 @@ class GroupList extends React.Component {
             }],
             onSelection: this.onSelection,
         };
-        let index = [];
-        data.map((value, index) => {
-            console.log(index);
-            this.index.push(index)
-        })
-        console.log(index);
         return (
-            <Table rowKey={index} rowSelection={rowSelection} columns={columns} dataSource={this.state.data} />
+            <Table rowKey='key' rowSelection={rowSelection} columns={columns} dataSource={this.state.data} scroll={{y: 480}}/>
         );
     }
 }
