@@ -3,12 +3,15 @@ import { Table } from 'antd';
 
 const columns = [{
     title: '分组名称',
+    width: '30%',
     dataIndex: 'groupname',
 }, {
     title: '用户数量',
+    width: '30%',
     dataIndex: 'usernum',
 }, {
     title: '操作',
+    width: '30%',
     render: () => (
         <span>
             <a href="/userlist">编辑</a>

@@ -10,6 +10,18 @@ class ThisMenu extends React.Component {
         current: '1',
         openKeys: [],
     }
+    componentDidMount(){
+        switch (window.location.pathname){
+            case '/userlist':
+                this.setState({ current: '1', openKeys: ['sub1'] });
+                break;
+            case '/grouplist':
+                this.setState({ current: '2', openKeys: ['sub1'] });
+                break;
+            default:
+                break;
+        }
+    }
     handleClick = (e) => {
         console.log('Clicked: ', e);
         this.setState({ current: e.key });
@@ -26,6 +38,7 @@ class ThisMenu extends React.Component {
         if (latestCloseKey) {
             nextOpenKeys = this.getAncestorKeys(latestCloseKey);
         }
+        console.log(nextOpenKeys)
         this.setState({ openKeys: nextOpenKeys });
     }
     getAncestorKeys = (key) => {
