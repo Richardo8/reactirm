@@ -10,6 +10,7 @@ class ThisMenu extends React.Component {
         current: '1',
         openKeys: [],
     }
+
     componentDidMount(){
         switch (window.location.pathname){
             case '/userlist':
