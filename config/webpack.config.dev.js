@@ -268,21 +268,21 @@ module.exports = {
   performance: {
     hints: false,
   },
-  devServer: {
-    host: 'localhost',
-    port: '3000',
-    proxy: [
-        {
-          context: '/login',
-            target: 'http://irm.bluefocus.com/Admin/Public/login',
-            secure: false
-        },
-        {
-          context: '/getUser',
-            target: 'http://irm.bluefocus.com/Admin/Account/usergroup',
-            secure: false
-        },
-
-    ]
-  }
+  // devServer: {
+  //   host: 'localhost',
+  //   port: '3000',
+  //   proxy: [
+  //       {
+  //         context: '/userlist',
+  //           target: 'http://127.0.0.1:8000/userlist',
+  //           secure: false
+  //       },
+  //       {
+  //         context: '/getUser',
+  //           target: 'http://irm.bluefocus.com/Admin/Account/usergroup',
+  //           secure: false
+  //       },
+  //
+  //   ]
+  // }
 };

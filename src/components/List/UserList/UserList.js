@@ -1,5 +1,7 @@
 import React from 'react';
 import { Table } from 'antd';
+import UserListLayer from "../../layer/userLayer/userLIstLayer";
+
 
 const columns = [{
     title: 'UID',
@@ -30,11 +32,9 @@ const columns = [{
     dataIndex: 'identity',
 }, {
     title: '操作',
-    render: () => (
+    render: (data) => (
         <span>
-            <a href="/userlist">分组</a>
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="/userlist">分组详细</a>
+            <UserListLayer Uid={data.uid}/>
         </span>
     ),
 }];
@@ -53,7 +53,7 @@ class UserList extends React.Component {
         this.setState({ selectedRowKeys });
     }
     async getData() {
-        let data = await fetch('/userData/UserData.json');
+        let data = await fetch('/userlist');
         let dataJson = await data.json();
         this.setState({ data: dataJson.data});
     }

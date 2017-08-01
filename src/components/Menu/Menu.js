@@ -39,7 +39,6 @@ class ThisMenu extends React.Component {
         if (latestCloseKey) {
             nextOpenKeys = this.getAncestorKeys(latestCloseKey);
         }
-        console.log(nextOpenKeys)
         this.setState({ openKeys: nextOpenKeys });
     }
     getAncestorKeys = (key) => {
