@@ -13,9 +13,9 @@ const { Header, Sider, Content } = Layout;
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="App" style={{height: '100%'}}>
         <Router>
-          <Layout>
+          <Layout style={{height: '100%'}}>
             <Header>Header</Header>
             <Layout>
               <Sider width={250}>
