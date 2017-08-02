@@ -5,36 +5,36 @@ import UserListLayer from "../../layer/userLayer/userLIstLayer";
 
 const columns = [{
     title: 'UID',
-    dataIndex: 'uid',
+    dataIndex: 'fields.uid',
 }, {
     title: '昵称',
-    dataIndex: 'nickname',
+    dataIndex: 'fields.nick',
 }, {
     title: '姓名',
-    dataIndex: 'name',
+    dataIndex: 'fields.name',
 }, {
     title: '性别',
-    dataIndex: 'sex',
+    dataIndex: 'fields.sex',
 }, {
     title: '用户手机号',
-    dataIndex: 'phone',
+    dataIndex: 'fields.phone',
 }, {
     title: '生日',
-    dataIndex: 'birthday',
+    dataIndex: 'fields.birthday',
 }, {
     title: '所在地',
-    dataIndex: 'address',
+    dataIndex: 'fields.address',
 }, {
     title: '最近访问时间',
-    dataIndex: 'latesttime',
+    dataIndex: 'fields.latest',
 }, {
     title: '用户身份',
-    dataIndex: 'identity',
+    dataIndex: 'fields.identity',
 }, {
     title: '操作',
     render: (data) => (
         <span>
-            <UserListLayer Uid={data.uid}/>
+            <UserListLayer Uid={data.fields.uid}/>
         </span>
     ),
 }];
@@ -55,7 +55,7 @@ class UserList extends React.Component {
     async getData() {
         let data = await fetch('/userlist');
         let dataJson = await data.json();
-        this.setState({ data: dataJson.data});
+        this.setState({ data: dataJson});
     }
 
     render() {
@@ -101,7 +101,7 @@ class UserList extends React.Component {
             onSelection: this.onSelection,
         };
         return (
-            <Table rowKey="uid" rowSelection={rowSelection} columns={columns} dataSource={this.state.data} />
+            <Table rowKey={data => data.fields.uid} rowSelection={rowSelection} columns={columns} dataSource={this.state.data} />
         );
     }
 }
