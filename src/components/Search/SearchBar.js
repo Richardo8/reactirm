@@ -15,8 +15,24 @@ class AdvancedSearchForm extends React.Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             console.log('Received values of form: ', values);
+            this.searchResult(values);
         });
         // const result = fetch('/search')
+    }
+
+    async searchResult(value){
+        console.log(value)
+        const result = await fetch('/search', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(value)
+        })
+        const resultJson = await result.json();
+        console.log(resultJson)
+        // this.setState({ })
     }
 
     handleReset = () => {
@@ -35,8 +51,8 @@ class AdvancedSearchForm extends React.Component {
     render() {
         const { getFieldDecorator } = this.props.form;
         const formItemLayout = {
-            labelCol: { span: 5 },
-            wrapperCol: { span: 17 },
+            labelCol: { span: 9 },
+            wrapperCol: { span: 15 },
         };
 
         // To generate mock Form.Item
@@ -60,7 +76,7 @@ class AdvancedSearchForm extends React.Component {
                 className="ant-advanced-search-form"
                 onSubmit={this.handleSearch}
             >
-                <Row gutter={40}>
+                <Row gutter={30}>
                     {/*{children.slice(0, shownCount)}*/}
                     <Col span={5} key={`1`}>
                         <FormItem {...formItemLayout} label={`用户姓名`}>

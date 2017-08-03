@@ -11,6 +11,7 @@ export default class Routes extends React.Component {
                 <div>
                     <Route exact path="/" component={Index}/>
                     <Route path="/userlist" component={UserListPage}/>
+                    <Route path="/search" component={UserListPage}/>
                     <Route path="/grouplist" component={GroupListPage}/>
                 </div>
         )
