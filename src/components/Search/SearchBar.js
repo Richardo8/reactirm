@@ -14,14 +14,13 @@ class AdvancedSearchForm extends React.Component {
     handleSearch = (e) => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
-            console.log('Received values of form: ', values);
+            // console.log('Received values of form: ', values);
             this.searchResult(values);
         });
         // const result = fetch('/search')
     }
 
     async searchResult(value){
-        console.log(value)
         const result = await fetch('/search', {
             method: 'POST',
             headers: {
@@ -31,7 +30,7 @@ class AdvancedSearchForm extends React.Component {
             body: JSON.stringify(value)
         })
         const resultJson = await result.json();
-        console.log(resultJson)
+        this.props.setCurrentContent(resultJson)
         // this.setState({ })
     }
 

@@ -4,11 +4,16 @@ import SearchBar from "../Search/SearchBar";
 
 export default class UserListPage extends Component {
     state = {
-        data: null,
+        data: [],
     };
 
     componentWillMount(){
         this.getData();
+    }
+
+    setCurrentContent = (value) => {
+        console.log(value)
+        this.setState({ data: value})
     }
 
     async getData() {
@@ -20,7 +25,7 @@ export default class UserListPage extends Component {
     render(){
         return (
             <div>
-                <SearchBar data={this.state.data}/>
+                <SearchBar setCurrentContent={this.setCurrentContent}/>
                 <UserList  data={this.state.data}/>
             </div>
         )

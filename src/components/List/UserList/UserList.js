@@ -42,11 +42,19 @@ const columns = [{
 class UserList extends React.Component {
     state = {
         selectedRowKeys: [],  // Check here to configure the default column
-        // data: []
+        data: this.props.data
     };
     componentWillMount(){
         // this.getData();
     }
+
+    componentWillReceiveProps (nextProps) {
+        console.log('1')
+        this.setState({
+            data: nextProps.data
+        })
+    }
+
 
     onSelectChange = (selectedRowKeys) => {
         console.log('selectedRowKeys changed: ', selectedRowKeys);
@@ -97,7 +105,7 @@ class UserList extends React.Component {
             onSelection: this.onSelection,
         };
         return (
-            <Table rowKey={data => data.uid} rowSelection={rowSelection} columns={columns} dataSource={this.props.data} />
+            <Table rowKey={data => data.uid} rowSelection={rowSelection} columns={columns} dataSource={this.state.data} />
         );
     }
 }
