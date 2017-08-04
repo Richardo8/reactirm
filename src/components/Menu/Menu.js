@@ -1,14 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 // import UserList from "../List/UserList/UserList";
+import { Layout, Menu, Icon } from 'antd';
+const { Sider } = Layout;
 
-import { Menu, Icon } from 'antd';
+
+// import {  } from 'antd';
 const SubMenu = Menu.SubMenu;
 
 class ThisMenu extends React.Component {
     state = {
+        collapsed: false,
         current: '1',
         openKeys: [],
+    }
+
+    onCollapse = (collapsed) => {
+        console.log(collapsed);
+        this.setState({ collapsed });
     }
 
     componentDidMount(){
@@ -28,18 +37,27 @@ class ThisMenu extends React.Component {
         this.setState({ current: e.key });
     }
     onOpenChange = (openKeys) => {
-        const state = this.state;
-        const latestOpenKey = openKeys.find(key => !(state.openKeys.indexOf(key) > -1));
-        const latestCloseKey = state.openKeys.find(key => !(openKeys.indexOf(key) > -1));
+        if(!this.props.isclosed){
+            console.log(openKeys)
+            const state = this.state;
+            const latestOpenKey = openKeys.find(key => !(state.openKeys.indexOf(key) > -1));
+            const latestCloseKey = state.openKeys.find(key => !(openKeys.indexOf(key) > -1));
 
-        let nextOpenKeys = [];
-        if (latestOpenKey) {
-            nextOpenKeys = this.getAncestorKeys(latestOpenKey).concat(latestOpenKey);
+            let nextOpenKeys = [];
+            if (latestOpenKey) {
+                nextOpenKeys = this.getAncestorKeys(latestOpenKey).concat(latestOpenKey);
+            }
+            if (latestCloseKey) {
+                nextOpenKeys = this.getAncestorKeys(latestCloseKey);
+            }
+            this.setState({ openKeys: nextOpenKeys });
+        }else{
+            if(openKeys.length > 1){
+                openKeys.shift();
+            }
+            console.log(openKeys)
+            this.setState({ openKeys: openKeys });
         }
-        if (latestCloseKey) {
-            nextOpenKeys = this.getAncestorKeys(latestCloseKey);
-        }
-        this.setState({ openKeys: nextOpenKeys });
     }
     getAncestorKeys = (key) => {
         const map = {
@@ -48,16 +66,17 @@ class ThisMenu extends React.Component {
     }
     render() {
         return (
+            //<Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse} width={200}>
                 <div>
                     <Menu
                         theme="dark"
                         mode="inline"
-                        openKeys={this.state.openKeys}
                         selectedKeys={[this.state.current]}
                         style={{
                             width: '100%',
                             height: '100%',
                         }}
+                        openKeys={this.state.openKeys}
                         onOpenChange={this.onOpenChange}
                         onClick={this.handleClick}
                     >
@@ -104,7 +123,7 @@ class ThisMenu extends React.Component {
                             {/*<Menu.Item key="22">经销商集团</Menu.Item>*/}
                             {/*<Menu.Item key="23">4S店管理</Menu.Item>*/}
                         {/*</SubMenu>*/}
-                        <SubMenu key="sub1" title={<span><Icon type="mail" /><span>概览</span></span>}>
+                        <SubMenu key="sub1" title={<span><Icon type="pie-chart" /><span>概览</span></span>}>
                             <Menu.Item key="1"><Link to="/userlist">新增用户</Link></Menu.Item>
                             <Menu.Item key="2"><Link to="/grouplist">新增回复</Link></Menu.Item>
                             <Menu.Item key="3">场景数据</Menu.Item>
@@ -116,7 +135,7 @@ class ThisMenu extends React.Component {
                             <Menu.Item key="7">消息收藏</Menu.Item>
                             <Menu.Item key="8">消息搜索</Menu.Item>
                         </SubMenu>
-                        <SubMenu key="sub3" title={<span><Icon type="mail" /><span>文章管理</span></span>}>
+                        <SubMenu key="sub3" title={<span><Icon type="desktop" /><span>文章管理</span></span>}>
                             <Menu.Item key="9">用户列表</Menu.Item>
                             <Menu.Item key="10">用户互动明细</Menu.Item>
                             <Menu.Item key="11">用户标签管理</Menu.Item>
@@ -132,7 +151,7 @@ class ThisMenu extends React.Component {
                             <Menu.Item key="19">转化数据</Menu.Item>
                             <Menu.Item key="20">高级模式</Menu.Item>
                         </SubMenu>
-                        <SubMenu key="sub5" title={<span><Icon type="setting" /><span>内容</span></span>}>
+                        <SubMenu key="sub5" title={<span><Icon type="file" /><span>内容</span></span>}>
                             <Menu.Item key="21">素材库</Menu.Item>
                             <Menu.Item key="22">微页面</Menu.Item>
                             <Menu.Item key="23">文章</Menu.Item>
@@ -141,7 +160,7 @@ class ThisMenu extends React.Component {
                             <Menu.Item key="26">表单</Menu.Item>
                             <Menu.Item key="27">投票</Menu.Item>
                         </SubMenu>
-                        <SubMenu key="sub6" title={<span><Icon type="setting" /><span>高级</span></span>}>
+                        <SubMenu key="sub6" title={<span><Icon type="area-chart" /><span>高级</span></span>}>
                             <Menu.Item key="28">微信互动</Menu.Item>
                             <Menu.Item key="29">会员系统</Menu.Item>
                             <Menu.Item key="30">大屏幕</Menu.Item>
@@ -149,17 +168,18 @@ class ThisMenu extends React.Component {
                             <Menu.Item key="32">卡券管理</Menu.Item>
                             <Menu.Item key="33">门店管理</Menu.Item>
                         </SubMenu>
-                        <SubMenu key="sub7" title={<span><Icon type="setting" /><span>应用</span></span>}>
+                        <SubMenu key="sub7" title={<span><Icon type="cloud" /><span>应用</span></span>}>
                             <Menu.Item key="34">我的应用</Menu.Item>
                             <Menu.Item key="35">应用商店</Menu.Item>
                         </SubMenu>
-                        <SubMenu key="sub8" title={<span><Icon type="setting" /><span>设置</span></span>}>
+                        <SubMenu key="sub8" title={<span><Icon type="code" /><span>设置</span></span>}>
                             <Menu.Item key="36">公众号设置</Menu.Item>
                             <Menu.Item key="37">团队协作</Menu.Item>
                             <Menu.Item key="38">账单管理</Menu.Item>
                         </SubMenu>
                     </Menu>
                 </div>
+            // </Sider>
         );
     }
 }
