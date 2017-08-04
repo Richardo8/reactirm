@@ -3,15 +3,15 @@ import { Table } from 'antd';
 
 const columns = [{
     title: '分组名称',
-    width: '30%',
+    width: '34%',
     dataIndex: 'groupname',
 }, {
     title: '用户数量',
-    width: '30%',
+    width: '33%',
     dataIndex: 'usernum',
 }, {
     title: '操作',
-    width: '30%',
+    width: '33%',
     render: () => (
         <span>
             <a href="/userlist">编辑</a>
@@ -37,7 +37,7 @@ class GroupList extends React.Component {
 
     render() {
         return (
-            <Table rowKey='key' columns={columns} dataSource={this.state.data} scroll={{y: 480}}/>
+            <Table rowKey='key' columns={columns} dataSource={this.state.data} scroll={{y: '100%'}}/>
         );
     }
 }

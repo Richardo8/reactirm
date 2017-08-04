@@ -5,33 +5,43 @@ import UserListLayer from "../../layer/userLayer/userLIstLayer";
 
 const columns = [{
     title: 'UID',
+    width: '5%',
     dataIndex: 'uid',
 }, {
     title: '昵称',
+    width: '10%',
     dataIndex: 'nick',
 }, {
     title: '姓名',
+    width: '10%',
     dataIndex: 'name',
 }, {
     title: '性别',
+    width: '10%',
     dataIndex: 'sex',
 }, {
     title: '用户手机号',
+    width: '10%',
     dataIndex: 'phone',
 }, {
     title: '生日',
+    width: '10%',
     dataIndex: 'birthday',
 }, {
     title: '所在地',
+    width: '10%',
     dataIndex: 'address',
 }, {
     title: '最近访问时间',
+    width: '10%',
     dataIndex: 'latest',
 }, {
     title: '用户身份',
+    width: '10%',
     dataIndex: 'identity',
 }, {
     title: '操作',
+    width: '10%',
     render: (data) => (
         <span>
             <UserListLayer Uid={data.id}/>
@@ -49,7 +59,6 @@ class UserList extends React.Component {
     }
 
     componentWillReceiveProps (nextProps) {
-        console.log('1')
         this.setState({
             data: nextProps.data
         })
@@ -105,7 +114,7 @@ class UserList extends React.Component {
             onSelection: this.onSelection,
         };
         return (
-            <Table rowKey={data => data.uid} rowSelection={rowSelection} columns={columns} dataSource={this.state.data} />
+            <Table rowKey={data => data.uid} rowSelection={rowSelection} columns={columns} dataSource={this.state.data} scroll={{y: '100%'}}/>
         );
     }
 }
