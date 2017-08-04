@@ -110,7 +110,7 @@ class AdvancedSearchForm extends React.Component {
                             )}
                         </FormItem>
                     </Col>
-                    <Col span={4} key={`4`}>
+                    <Col span={3} key={`4`}>
                         <FormItem {...formItemLayout} label={`用户身份`}>
                             {getFieldDecorator('identity')(
                                 <select style={{width: '100%'}}>
@@ -125,14 +125,14 @@ class AdvancedSearchForm extends React.Component {
                             )}
                         </FormItem>
                     </Col>
-                    <Col span={7} key={`5`}>
+                    <Col span={5} key={`5`}>
                         <FormItem {...selectTime} label={`最近访问时间`}>
                             {getFieldDecorator('latest')(
                                 <RangePicker disabledDate={this.disabledDateTime} format="YYYY-MM-DD" />
                             )}
                         </FormItem>
                     </Col>
-                    <Col span={25} style={{ textAlign: 'right' }}>
+                    <Col span={3} style={{ textAlign: 'right' }}>
                         <Button type="primary" htmlType="submit">Search</Button>
                         <Button style={{ marginLeft: 8 }} onClick={this.handleReset}>
                             Clear
