@@ -16,9 +16,9 @@ class App extends Component {
       <div className="App" style={{height: '100%'}}>
         <Router>
           <Layout style={{height: '100%'}}>
-            <Header>Header</Header>
+            <Header style={{ textAlign: 'center'}}>Header</Header>
             <Layout>
-              <Sider width={250}>
+              <Sider width={200}>
                 <ThisMenu/>
               </Sider>
               <Content>

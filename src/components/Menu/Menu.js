@@ -55,8 +55,8 @@ class ThisMenu extends React.Component {
                         openKeys={this.state.openKeys}
                         selectedKeys={[this.state.current]}
                         style={{
-                            width: 240,
-                            height: '100%'
+                            width: '100%',
+                            height: '100%',
                         }}
                         onOpenChange={this.onOpenChange}
                         onClick={this.handleClick}
