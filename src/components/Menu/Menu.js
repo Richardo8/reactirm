@@ -37,7 +37,7 @@ class ThisMenu extends React.Component {
         this.setState({ current: e.key });
     }
     onOpenChange = (openKeys) => {
-        if(!this.props.isclosed){
+        if(!this.state.collapsed){
             console.log(openKeys)
             const state = this.state;
             const latestOpenKey = openKeys.find(key => !(state.openKeys.indexOf(key) > -1));

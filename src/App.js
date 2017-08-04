@@ -11,17 +11,6 @@ const { Header, Sider, Content } = Layout;
 
 
 class App extends Component {
-
-    state = {
-        collapsed: false,
-    }
-
-    onCollapse = (collapsed) => {
-        console.log(collapsed);
-        this.setState({ collapsed });
-    }
-
-
   render() {
     return (
       <div className="App" style={{height: '100%'}}>
@@ -30,7 +19,7 @@ class App extends Component {
             <Header style={{ textAlign: 'center'}}>Header</Header>
             <Layout>
               {/*<Sider>*/}
-                <ThisMenu isclosed={this.state.collapsed}/>
+                <ThisMenu/>
               {/*</Sider>*/}
               <Content>
                 <Routes/>
