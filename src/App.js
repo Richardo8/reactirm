@@ -29,9 +29,9 @@ class App extends Component {
           <Layout style={{height: '100%'}}>
             <Header style={{ textAlign: 'center'}}>Header</Header>
             <Layout>
-              <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
+              {/*<Sider>*/}
                 <ThisMenu isclosed={this.state.collapsed}/>
-              </Sider>
+              {/*</Sider>*/}
               <Content>
                 <Routes/>
               </Content>

@@ -66,7 +66,7 @@ class ThisMenu extends React.Component {
     }
     render() {
         return (
-            //<Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse} width={200}>
+            <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse} width={200}>
                 <div>
                     <Menu
                         theme="dark"
@@ -179,9 +179,11 @@ class ThisMenu extends React.Component {
                         </SubMenu>
                     </Menu>
                 </div>
-            // </Sider>
+            </Sider>
         );
     }
 }
+
+ThisMenu.__ANT_LAYOUT_SIDER = true;
 
 export default ThisMenu;
