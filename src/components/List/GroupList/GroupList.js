@@ -1,17 +1,21 @@
 import React from 'react';
 import { Table } from 'antd';
+import '../tableCSS.css'
 
 const columns = [{
     title: '分组名称',
     width: '34%',
+    className: 'column-center',
     dataIndex: 'groupname',
 }, {
     title: '用户数量',
     width: '33%',
+    className: 'column-center',
     dataIndex: 'usernum',
 }, {
     title: '操作',
     width: '33%',
+    className: 'column-center',
     render: () => (
         <span>
             <a href="/userlist">编辑</a>

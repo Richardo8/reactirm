@@ -1,47 +1,57 @@
 import React from 'react';
 import { Table } from 'antd';
 import UserListLayer from "../../layer/userLayer/userLIstLayer";
-
+import '../tableCSS.css'
 
 const columns = [{
     title: 'UID',
     width: '5%',
+    className: 'column-center',
     dataIndex: 'uid',
 }, {
     title: '昵称',
     width: '10%',
+    className: 'column-center',
     dataIndex: 'nick',
 }, {
     title: '姓名',
     width: '10%',
+    className: 'column-center',
     dataIndex: 'name',
 }, {
     title: '性别',
     width: '10%',
+    className: 'column-center',
     dataIndex: 'sex',
 }, {
     title: '用户手机号',
     width: '10%',
+    className: 'column-center',
     dataIndex: 'phone',
 }, {
     title: '生日',
     width: '10%',
+    className: 'column-center',
     dataIndex: 'birthday',
 }, {
     title: '所在地',
     width: '10%',
+    className: 'column-center',
     dataIndex: 'address',
 }, {
     title: '最近访问时间',
     width: '10%',
+    className: 'column-center',
     dataIndex: 'latest',
 }, {
     title: '用户身份',
     width: '10%',
+    className: 'column-center',
     dataIndex: 'identity',
 }, {
     title: '操作',
     width: '10%',
+    className: 'column-center',
     render: (data) => (
         <span>
             <UserListLayer Uid={data.id}/>

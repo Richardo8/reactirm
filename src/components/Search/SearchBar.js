@@ -50,9 +50,13 @@ class AdvancedSearchForm extends React.Component {
     render() {
         const { getFieldDecorator } = this.props.form;
         const formItemLayout = {
-            labelCol: { span: 9 },
-            wrapperCol: { span: 15 },
+            labelCol: { span: 8 },
+            wrapperCol: { span: 10 },
         };
+        const selectTime = {
+            labelCol: { span: 6 },
+            wrapperCol: { span: 18 },
+        }
 
         // To generate mock Form.Item
         // const children = [];
@@ -75,23 +79,23 @@ class AdvancedSearchForm extends React.Component {
                 className="ant-advanced-search-form"
                 onSubmit={this.handleSearch}
             >
-                <Row gutter={30}>
+                <Row gutter={0}>
                     {/*{children.slice(0, shownCount)}*/}
-                    <Col span={5} key={`1`}>
+                    <Col span={4} key={`1`}>
                         <FormItem {...formItemLayout} label={`用户姓名`}>
                             {getFieldDecorator('name')(
                                 <Input placeholder="用户姓名" />
                             )}
                         </FormItem>
                     </Col>
-                    <Col span={5} key={`2`}>
+                    <Col span={4} key={`2`}>
                         <FormItem {...formItemLayout} label={`用户手机号`}>
                             {getFieldDecorator('phone')(
                                 <Input placeholder="用户手机号" />
                             )}
                         </FormItem>
                     </Col>
-                    <Col span={5} key={`3`}>
+                    <Col span={4} key={`3`}>
                         <FormItem {...formItemLayout} label={`用户分组`}>
                             {getFieldDecorator('group')(
                                 <select style={{width: '100%'}}>
@@ -106,7 +110,7 @@ class AdvancedSearchForm extends React.Component {
                             )}
                         </FormItem>
                     </Col>
-                    <Col span={5} key={`4`}>
+                    <Col span={4} key={`4`}>
                         <FormItem {...formItemLayout} label={`用户身份`}>
                             {getFieldDecorator('identity')(
                                 <select style={{width: '100%'}}>
@@ -121,22 +125,28 @@ class AdvancedSearchForm extends React.Component {
                             )}
                         </FormItem>
                     </Col>
-                    <Col span={5} key={`5`}>
-                        <FormItem {...formItemLayout} label={`最近访问时间`}>
+                    <Col span={7} key={`5`}>
+                        <FormItem {...selectTime} label={`最近访问时间`}>
                             {getFieldDecorator('latest')(
                                 <RangePicker disabledDate={this.disabledDateTime} format="YYYY-MM-DD" />
                             )}
                         </FormItem>
                     </Col>
-                </Row>
-                <Row>
-                    <Col span={24} style={{ textAlign: 'right' }}>
+                    <Col span={25} style={{ textAlign: 'right' }}>
                         <Button type="primary" htmlType="submit">Search</Button>
                         <Button style={{ marginLeft: 8 }} onClick={this.handleReset}>
                             Clear
                         </Button>
                     </Col>
                 </Row>
+                {/*<Row>*/}
+                    {/*<Col span={24} style={{ textAlign: 'right' }}>*/}
+                        {/*<Button type="primary" htmlType="submit">Search</Button>*/}
+                        {/*<Button style={{ marginLeft: 8 }} onClick={this.handleReset}>*/}
+                            {/*Clear*/}
+                        {/*</Button>*/}
+                    {/*</Col>*/}
+                {/*</Row>*/}
             </Form>
         );
     }
