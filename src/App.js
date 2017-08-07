@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-// import WrappedNormalLoginForm from './components/Login/Login'
-// import UserList from './components/List/UserList/UserList'
+import { Provider } from 'react-redux'
+import configureStore from './Redux/Store/Store'
 import { BrowserRouter as Router } from 'react-router-dom'
 import './App.css';
 import ThisMenu from "./components/Menu/Menu";
 import Routes from './Route/Routes'
 
 import { Layout } from 'antd';
-const { Header, Sider, Content } = Layout;
+const { Header, Content } = Layout;
 
+const store = configureStore()
+
+console.log(store)
 
 class App extends Component {
   render() {

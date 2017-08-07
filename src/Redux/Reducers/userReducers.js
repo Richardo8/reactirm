@@ -23,6 +23,6 @@ function postsBySubreddit(state = { }, action) {
     }
 }
 
-export default rootReducers = combineReducers({
+export default combineReducers({
     postsBySubreddit
 })
