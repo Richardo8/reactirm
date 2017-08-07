@@ -12,11 +12,11 @@ const { Header, Content } = Layout;
 
 class Main extends Component {
 
-    componentDidMount() {
-        const { dispatch, selectedSubreddit } = this.props
-        dispatch(fetchPosts(selectedSubreddit))
-        // console.log(dispatch)
-    }
+    // componentDidMount() {
+    //     const { dispatch, selectedSubreddit } = this.props
+    //     dispatch(fetchPosts(selectedSubreddit))
+    //     // console.log(dispatch)
+    // }
 
     render() {
         return (
@@ -27,7 +27,7 @@ class Main extends Component {
                         <Layout>
                             <ThisMenu/>
                             <Content>
-                                <Routes store={this.props.store}/>
+                                <Routes/>
                             </Content>
                         </Layout>
                     </Layout>
@@ -37,13 +37,6 @@ class Main extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    const { postsBySubreddit } = state
-    const {items: posts} = {items: []}
 
-    return {
-        posts
-    }
-}
 
-export default connect(mapStateToProps)(Main);
+export default connect()(Main);

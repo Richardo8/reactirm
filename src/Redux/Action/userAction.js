@@ -14,14 +14,14 @@ function receivePosts(subreddit, json) {
     return {
         type: GET_USERS_RECEIVE,
         subreddit,
-        posts: json.data.children.map(child => child.data),
+        posts: json.map(child => child),
     }
 }
 
 export default function fetchPosts(subreddit) {
     return async dispatch => {
         let res = await fetch(`/userlist`)
-        let resJson = res.json()
+        let resJson = await res.json()
         return dispatch(receivePosts(subreddit, resJson))
     }
 }
