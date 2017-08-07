@@ -18,7 +18,7 @@ function receivePosts(subreddit, json) {
     }
 }
 
-export function fetchPosts(subreddit) {
+export default function fetchPosts(subreddit) {
     return async dispatch => {
         let res = await fetch(`/userlist`)
         let resJson = res.json()

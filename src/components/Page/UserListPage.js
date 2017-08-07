@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import UserList from "../List/UserList/UserList";
 import SearchBar from "../Search/SearchBar";
+import fetchPosts from '../../Redux/Action/userAction'
 
 export default class UserListPage extends Component {
     state = {
@@ -8,7 +9,10 @@ export default class UserListPage extends Component {
     };
 
     componentWillMount(){
-        this.getData();
+        // this.getData();
+        // console.log(this.props)
+        // const { dispatch, selectedSubreddit } = this.props
+        // dispatch(fetchPosts(selectedSubreddit))
     }
 
     setCurrentContent = (value) => {

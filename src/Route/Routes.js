@@ -7,6 +7,7 @@ import GroupListPage from "../components/Page/GroupListPage";
 
 export default class Routes extends React.Component {
     render(){
+        console.log(this.props)
         return (
                 <div>
                     <Route exact path="/" component={Index}/>
@@ -14,6 +15,7 @@ export default class Routes extends React.Component {
                     <Route path="/search" component={UserListPage}/>
                     <Route path="/grouplist" component={GroupListPage}/>
                 </div>
+
         )
     }
 }

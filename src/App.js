@@ -7,6 +7,7 @@ import ThisMenu from "./components/Menu/Menu";
 import Routes from './Route/Routes'
 
 import { Layout } from 'antd';
+import Main from "./Main";
 const { Header, Content } = Layout;
 
 const store = configureStore()
@@ -16,22 +17,10 @@ console.log(store)
 class App extends Component {
   render() {
     return (
-      <div className="App" style={{height: '100%'}}>
-        <Router>
-          <Layout style={{height: '100%'}}>
-            <Header style={{ textAlign: 'center'}}>Header</Header>
-            <Layout>
-              {/*<Sider>*/}
-                <ThisMenu/>
-              {/*</Sider>*/}
-              <Content>
-                <Routes/>
-              </Content>
-            </Layout>
-          </Layout>
-        </Router>
+        <Provider store={store}>
+          <Main/>
+        </Provider>
 
-      </div>
     );
   }
 }
