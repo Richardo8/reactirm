@@ -135,7 +135,7 @@ class ThisMenu extends React.Component {
                             <Menu.Item key="7">消息收藏</Menu.Item>
                             <Menu.Item key="8">消息搜索</Menu.Item>
                         </SubMenu>
-                        <SubMenu key="sub3" title={<span><Icon type="desktop" /><span>文章管理</span></span>}>
+                        <SubMenu key="sub3" title={<span><Icon type="desktop" /><span>用户</span></span>}>
                             <Menu.Item key="9">用户列表</Menu.Item>
                             <Menu.Item key="10">用户互动明细</Menu.Item>
                             <Menu.Item key="11">用户标签管理</Menu.Item>
