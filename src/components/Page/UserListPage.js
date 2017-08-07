@@ -18,6 +18,7 @@ class UserListPage extends Component {
         dispatch(fetchPosts(selectedSubreddit))
     }
 
+    // 如果使用redux的话兄弟组件之间通信就不需要子传父父再传子
     setCurrentContent = (value) => {
         console.log(value)
         this.setState({ data: value})
