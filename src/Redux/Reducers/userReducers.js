@@ -31,8 +31,6 @@ function postsBySubreddit(state = { }, action) {
             // return Object.assign({}, state, {
             //     [action.subreddit]: posts(state[action.subreddit], action)
             // })
-            console.log(action)
-            console.log(action.subreddit)
             return {
                 ...state,
                 [action.subreddit]: posts(state[action.subreddit], action)

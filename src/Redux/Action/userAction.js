@@ -21,7 +21,6 @@ function receivePosts(subreddit, json) {
 // 该方法改写为引入data和url参数，获取数据的时候就可以获取到相应数据。最开始不会报错的原因是设置了data的默认值为{}，python就不会报错
 export default function fetchPosts(subreddit, data={}, url) {
     return async dispatch => {
-        console.log(subreddit)
         let res = await fetch(url, {
             method: 'POST',
             headers: {
