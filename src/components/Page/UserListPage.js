@@ -32,7 +32,6 @@ class UserListPage extends Component {
 
     render(){
         const { posts } = this.props
-        console.log(posts)
         return (
             <div>
                 <SearchBar setCurrentContent={this.setCurrentContent}/>
@@ -44,7 +43,6 @@ class UserListPage extends Component {
 
 function mapStateToProps(state) {
     const { postsBySubreddit } = state
-    console.log(postsBySubreddit)
     const {items: posts} = postsBySubreddit.undefined || {items: []}
 
     return {

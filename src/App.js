@@ -6,8 +6,6 @@ import Main from "./Main";
 
 const store = configureStore()
 
-console.log(store)
-
 class App extends Component {
   render() {
     return (
