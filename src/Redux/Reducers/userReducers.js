@@ -1,6 +1,14 @@
 import { combineReducers } from 'redux'
 import { GET_USERS_RECEIVE} from "../Action/userAction"
 
+// 该方法是用来选择selectedSubreddit的
+function selectedSubreddit(state='post', action) {
+    switch(action.type){
+        default:
+            return state
+    }
+}
+
 function posts(state = {}, action) {
     switch (action.type) {
         case GET_USERS_RECEIVE:
@@ -33,7 +41,8 @@ function postsBySubreddit(state = { }, action) {
 }
 
 const rootReducers = combineReducers({
-    postsBySubreddit
+    postsBySubreddit,
+    selectedSubreddit
 })
 
 export default rootReducers

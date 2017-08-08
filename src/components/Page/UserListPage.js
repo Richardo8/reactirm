@@ -42,9 +42,9 @@ class UserListPage extends Component {
 }
 
 function mapStateToProps(state) {
-    const { postsBySubreddit } = state
+    const { selectedSubreddit, postsBySubreddit } = state
     console.log(state)
-    const {items: posts} = postsBySubreddit.post || {items: []}
+    const {items: posts} = postsBySubreddit[selectedSubreddit] || {items: []}
 
     return {
         posts

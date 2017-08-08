@@ -31,7 +31,7 @@ export default function fetchPosts(subreddit, data={}, url) {
             body: JSON.stringify(data)
         })
         let resJson = await res.json()
-        return dispatch(receivePosts(subreddit='post', resJson))
+        return dispatch(receivePosts(subreddit, resJson))
     }
 }
 
