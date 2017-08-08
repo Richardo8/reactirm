@@ -46,6 +46,7 @@ function mapStateToProps(state) {
     console.log(state)
     const {items: posts} = postsBySubreddit[selectedSubreddit] || {items: []}
 
+    // 需要返回selectedSubreddit以作为参数传入方法，避免发生undefined的错误
     return {
         selectedSubreddit,
         posts

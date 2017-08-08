@@ -151,10 +151,8 @@ class AdvancedSearchForm extends React.Component {
 }
 
 function mapStateToProps(state) {
-    const { selectedSubreddit, postsBySubreddit } = state
-    console.log(selectedSubreddit)
-    console.log(state)
-    // console.log(postsBySubreddit)
+    const { selectedSubreddit } = state
+    // 需要返回selectedSubreddit以作为参数传入方法，避免发生undefined的错误
 
     return {
         selectedSubreddit,
