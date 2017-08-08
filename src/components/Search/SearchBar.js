@@ -21,6 +21,8 @@ class AdvancedSearchForm extends React.Component {
             // this.searchResult(values);
             // 直接将获取到的输入框内容作为参数传入方法，就可以获取数据
             const { dispatch, selectedSubreddit } = this.props
+            console.log(this.props)
+            console.log(selectedSubreddit)
             dispatch(fetchPosts(selectedSubreddit, values, '/search'))
         });
     }
@@ -148,6 +150,17 @@ class AdvancedSearchForm extends React.Component {
     }
 }
 
+function mapStateToProps(state) {
+    const { selectedSubreddit, postsBySubreddit } = state
+    console.log(selectedSubreddit)
+    console.log(state)
+    // console.log(postsBySubreddit)
+
+    return {
+        selectedSubreddit,
+    }
+}
+
 const SearchBar = Form.create()(AdvancedSearchForm);
 
-export default connect()(SearchBar);
+export default connect(mapStateToProps)(SearchBar);

@@ -47,6 +47,7 @@ function mapStateToProps(state) {
     const {items: posts} = postsBySubreddit[selectedSubreddit] || {items: []}
 
     return {
+        selectedSubreddit,
         posts
     }
 }
