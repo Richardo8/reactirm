@@ -23,8 +23,6 @@ class AdvancedSearchForm extends React.Component {
             const { dispatch, selectedSubreddit } = this.props
             dispatch(fetchPosts(selectedSubreddit, values, '/search'))
         });
-
-        // const result = fetch('/search')
     }
 
     async searchResult(value){
@@ -38,7 +36,6 @@ class AdvancedSearchForm extends React.Component {
         })
         const resultJson = await result.json();
         this.props.setCurrentContent(resultJson)
-        // this.setState({ })
     }
 
     handleReset = () => {
@@ -146,14 +143,6 @@ class AdvancedSearchForm extends React.Component {
                         </Button>
                     </Col>
                 </Row>
-                {/*<Row>*/}
-                    {/*<Col span={24} style={{ textAlign: 'right' }}>*/}
-                        {/*<Button type="primary" htmlType="submit">Search</Button>*/}
-                        {/*<Button style={{ marginLeft: 8 }} onClick={this.handleReset}>*/}
-                            {/*Clear*/}
-                        {/*</Button>*/}
-                    {/*</Col>*/}
-                {/*</Row>*/}
             </Form>
         );
     }
