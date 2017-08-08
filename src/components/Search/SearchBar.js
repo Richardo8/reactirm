@@ -19,6 +19,7 @@ class AdvancedSearchForm extends React.Component {
         this.props.form.validateFields((err, values) => {
             // console.log('Received values of form: ', values);
             // this.searchResult(values);
+            // 直接将获取到的输入框内容作为参数传入方法，就可以获取数据
             const { dispatch, selectedSubreddit } = this.props
             dispatch(fetchPosts(selectedSubreddit, values, '/search'))
         });
