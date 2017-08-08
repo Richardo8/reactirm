@@ -15,7 +15,7 @@ class UserListPage extends Component {
         // const { dispatch, selectedSubreddit } = this.props
         // dispatch(fetchPosts(selectedSubreddit))
         const { dispatch, selectedSubreddit } = this.props
-        dispatch(fetchPosts(selectedSubreddit))
+        dispatch(fetchPosts(selectedSubreddit, {}, '/userlist'))
     }
 
     // 如果使用redux的话兄弟组件之间通信就不需要子传父父再传子

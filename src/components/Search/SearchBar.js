@@ -2,6 +2,9 @@ import React from 'react'
 import { Form, Row, Col, Input, Button } from 'antd';
 import './SearchBar.css'
 // import moment from 'moment';
+import { connect } from 'react-redux'
+import fetchPosts from '../../Redux/Action/userAction'
+
 import { DatePicker } from 'antd';
 const { RangePicker } = DatePicker;
 const FormItem = Form.Item;
@@ -15,8 +18,11 @@ class AdvancedSearchForm extends React.Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             // console.log('Received values of form: ', values);
-            this.searchResult(values);
+            // this.searchResult(values);
+            const { dispatch, selectedSubreddit } = this.props
+            dispatch(fetchPosts(selectedSubreddit, values, '/search'))
         });
+
         // const result = fetch('/search')
     }
 
@@ -154,4 +160,4 @@ class AdvancedSearchForm extends React.Component {
 
 const SearchBar = Form.create()(AdvancedSearchForm);
 
-export default SearchBar;
+export default connect()(SearchBar);

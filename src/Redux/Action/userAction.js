@@ -18,17 +18,19 @@ function receivePosts(subreddit, json) {
     }
 }
 
-export default function fetchPosts(subreddit) {
+export default function fetchPosts(subreddit, data={}, url) {
     return async dispatch => {
-        let res = await fetch(`/userlist`, {
+        console.log(data)
+        let res = await fetch(url, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({})
+            body: JSON.stringify(data)
         })
         let resJson = await res.json()
+        console.log(resJson)
         return dispatch(receivePosts(subreddit, resJson))
     }
 }
