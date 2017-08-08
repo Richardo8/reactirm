@@ -4,9 +4,14 @@ import { GET_USERS_RECEIVE} from "../Action/userAction"
 function posts(state = {}, action) {
     switch (action.type) {
         case GET_USERS_RECEIVE:
-            return Object.assign({}, state, {
+            // return Object.assign({}, state, {
+            //     items: action.posts
+            // })
+            // 使用对象展开运算符
+            return {
+                ...state,
                 items: action.posts
-            })
+            }
         default:
             return state
     }
@@ -15,9 +20,13 @@ function posts(state = {}, action) {
 function postsBySubreddit(state = { }, action) {
     switch (action.type) {
         case GET_USERS_RECEIVE:
-            return Object.assign({}, state, {
+            // return Object.assign({}, state, {
+            //     [action.subreddit]: posts(state[action.subreddit], action)
+            // })
+            return {
+                ...state,
                 [action.subreddit]: posts(state[action.subreddit], action)
-            })
+            }
         default:
             return state
     }
