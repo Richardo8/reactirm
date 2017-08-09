@@ -154,7 +154,7 @@ class ThisMenu extends React.Component {
                         <SubMenu key="sub5" title={<span><Icon type="file" /><span>内容</span></span>}>
                             <Menu.Item key="21">素材库</Menu.Item>
                             <Menu.Item key="22">微页面</Menu.Item>
-                            <Menu.Item key="23">文章</Menu.Item>
+                            <Menu.Item key="23"><Link to="/article">文章</Link></Menu.Item>
                             <Menu.Item key="24">H5</Menu.Item>
                             <Menu.Item key="25">二维码</Menu.Item>
                             <Menu.Item key="26">表单</Menu.Item>
