@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
 import './publish.css'
+const { TextArea } = Input
 const FormItem = Form.Item;
 const Option = Select.Option;
 const AutoCompleteOption = AutoComplete.Option;
@@ -115,7 +116,7 @@ class Publish extends React.Component {
             <Form className="FormMaxWidth" onSubmit={this.handleSubmit}>
                 <FormItem
                     {...formItemLayout}
-                    label="E-mail"
+                    label="文章标题"
                     hasFeedback
                 >
                     {getFieldDecorator('email', {
@@ -130,22 +131,18 @@ class Publish extends React.Component {
                 </FormItem>
                 <FormItem
                     {...formItemLayout}
-                    label="Password"
-                    hasFeedback
+                    label="频道栏目"
                 >
-                    {getFieldDecorator('password', {
-                        rules: [{
-                            required: true, message: 'Please input your password!',
-                        }, {
-                            validator: this.checkConfirm,
-                        }],
+                    {getFieldDecorator('residence', {
+                        initialValue: ['zhejiang', 'hangzhou', 'xihu'],
+                        rules: [{ type: 'array', required: true, message: 'Please select your habitual residence!' }],
                     })(
-                        <Input type="password" />
+                        <Cascader options={residences} />
                     )}
                 </FormItem>
                 <FormItem
                     {...formItemLayout}
-                    label="Confirm Password"
+                    label="作者来源"
                     hasFeedback
                 >
                     {getFieldDecorator('confirm', {
@@ -156,6 +153,21 @@ class Publish extends React.Component {
                         }],
                     })(
                         <Input type="password" onBlur={this.handleConfirmBlur} />
+                    )}
+                </FormItem>
+                <FormItem
+                    {...formItemLayout}
+                    label="摘要"
+                    hasFeedback
+                >
+                    {getFieldDecorator('confirm', {
+                        rules: [{
+                            required: true, message: 'Please confirm your password!',
+                        }, {
+                            validator: this.checkPassword,
+                        }],
+                    })(
+                        <TextArea rows={4} onBlur={this.handleConfirmBlur} />
                     )}
                 </FormItem>
                 <FormItem
