@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import { Form, Input, Icon, Cascader, Button, Upload, message } from 'antd';
 import './publish.css'
+import Ueditor from "../../Editor/Ueditor";
+// import '../../plugins/ueditor1_4_3/ueditor.all2.min'
+// import '../../plugins/ueditor1_4_3/ueditor.config'
+// import '../../plugins/ueditor1_4_3/lang/zh-cn/zh-cn'
 const { TextArea } = Input
 const FormItem = Form.Item;
 
@@ -168,6 +172,19 @@ class Publish extends Component {
                         }],
                     })(
                         <TextArea rows={4} onBlur={this.handleConfirmBlur} />
+                    )}
+                </FormItem>
+                <FormItem
+                    {...formItemLayout}
+                    label="正文"
+                    hasFeedback
+                >
+                    {getFieldDecorator('正文', {
+                        rules: [{
+                            required: true, message: '请输入正文!',
+                        }],
+                    })(
+                        <Ueditor id="content" />
                     )}
                 </FormItem>
                 <FormItem {...tailFormItemLayout}>
