@@ -7,6 +7,7 @@ class ArticlePage extends Component {
         return (
             <div>
                 <Button type="primary"><Link to="/article/publish">发布文章</Link></Button>
+
             </div>
         )
     }
