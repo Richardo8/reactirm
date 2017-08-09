@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
+import './publish.css'
 const FormItem = Form.Item;
 const Option = Select.Option;
 const AutoCompleteOption = AutoComplete.Option;
@@ -111,7 +112,7 @@ class Publish extends React.Component {
         ));
 
         return (
-            <Form onSubmit={this.handleSubmit}>
+            <Form className="FormMaxWidth" onSubmit={this.handleSubmit}>
                 <FormItem
                     {...formItemLayout}
                     label="E-mail"
