@@ -49,8 +49,7 @@ export default class Routes extends React.Component {
                     <Route path="/userlist" component={UserListPage}/>
                     <Route path="/search" component={UserListPage}/>
                     <Route path="/grouplist" component={GroupListPage}/>
-                    <Route exact path="/article" component={ArticlePage}>
-                    </Route>
+                    <Route exact path="/article" component={ArticlePage}/>
                     <Route exact path="/article/publish" component={PublishComponent}/>
                     {/*{routes.map((route, i) => (*/}
                         {/*<RouteWithSubRoutes key={i} {...route}/>*/}
