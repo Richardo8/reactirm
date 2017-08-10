@@ -6,8 +6,9 @@ class Ueditor extends Component {
     state = {}
 
     componentDidMount(){
-        const baseUrl = `/JS/plugins/ueditor1_4_3/dialogs/xiumi/`
+        const baseUrl = `/JS/plugins/ueditor1_4_3/dialogs`
         this.initXiuMi(baseUrl)
+        this.init135(baseUrl)
         this.initEditor()
     }
 
@@ -42,7 +43,7 @@ class Ueditor extends Component {
                 title: '秀米',
                 onclick() {
                     const dialog = new UE.ui.Dialog({
-                        iframeUrl: `${baseURL}xiumi-ue-dialog-v5.html`,
+                        iframeUrl: `${baseURL}/xiumi/xiumi-ue-dialog-v5.html`,
                         editor,
                         name: 'xiumi-connect',
                         title: '秀米图文消息助手',
@@ -54,6 +55,31 @@ class Ueditor extends Component {
                 },
             });
         });
+    }
+
+    init135(baseURL){
+        UE.registerUI('135editor',function(editor,uiName){
+            var dialog = new UE.ui.Dialog({
+                iframeUrl: `${baseURL}/135/135EditorDialogPage.html`,
+                editor:editor,
+                name:uiName,
+                title:"135编辑器",
+                cssRules: `width: ${window.innerWidth - 60}px;` + `height: ${window.innerHeight - 60}px;`,
+            })
+            // cssRules该属性是控制对话框宽高的
+            // dialog.fullscreen = false; // 该属性设置是否全屏显示
+            dialog.draggable = true; // 设置是否可拖拽
+            var btn = new UE.ui.Button({
+                name:'btn-dialog-' + uiName,
+                className:'edui-for-135editor',
+                title:'135编辑器',
+                onclick:function () {
+                    dialog.render();
+                    dialog.open();
+                }
+            });
+            return btn;
+        },undefined);
     }
 
     render(){
