@@ -47,7 +47,7 @@ class Ueditor extends Component {
                         editor,
                         name: 'xiumi-connect',
                         title: '秀米图文消息助手',
-                        cssRules: `width: ${window.innerWidth - 60}px;` + `height: ${window.innerHeight - 60}px;`,
+                        cssRules: `width: ${window.innerWidth - 60}px; height: ${window.innerHeight - 60}px;`,
                     });
 
                     dialog.render();
@@ -64,7 +64,7 @@ class Ueditor extends Component {
                 editor:editor,
                 name:uiName,
                 title:"135编辑器",
-                cssRules: `width: ${window.innerWidth - 60}px;` + `height: ${window.innerHeight - 60}px;`,
+                cssRules: `width: ${window.innerWidth - 60}px; height: ${window.innerHeight - 60}px;`,
             })
             // cssRules该属性是控制对话框宽高的
             // dialog.fullscreen = false; // 该属性设置是否全屏显示

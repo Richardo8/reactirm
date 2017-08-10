@@ -6,38 +6,6 @@ import GroupListPage from "../components/Page/GroupListPage";
 import PublishComponent from "../components/Content/Article/Publish";
 import ArticlePage from "../components/Page/ArticlePage";
 
-const routes = [
-    {
-        path: '/',
-        component: Index,
-        exact: true
-    },
-    { path: '/userlist',
-        component: UserListPage
-    },
-    { path: '/search',
-        component: UserListPage
-    },
-    { path: '/grouplist',
-        component: GroupListPage
-    },
-    { path: '/article',
-        component: ArticlePage,
-        routes: [
-            { path: '/article/publish',
-                component: PublishComponent
-            },
-        ]
-    }
-]
-
-const RouteWithSubRoutes = (route) => (
-    <Route path={route.path} exact={route.exact} render={props => (
-        // pass the sub-routes down to keep nesting
-        <route.component {...props} routes={route.routes}/>
-    )}/>
-)
-
 export default class Routes extends React.Component {
     render(){
         return (
