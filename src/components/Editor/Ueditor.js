@@ -1,7 +1,4 @@
 import React, { Component } from 'react'
-// require('../plugins/ueditor1_4_3/ueditor.config');
-// require('../plugins/ueditor1_4_3/ueditor.all2.min');
-// require('../plugins/ueditor1_4_3/lang/zh-cn/zh-cn');
 const {UE} = window
 
 class Ueditor extends Component {
@@ -17,7 +14,6 @@ class Ueditor extends Component {
 
     initEditor(){
         const id = this.props.id;
-        console.log(id)
         const ueEditor = UE.getEditor(this.props.id, {
             initialFrameWidth: 737,
             initialFrameHeight: 546,

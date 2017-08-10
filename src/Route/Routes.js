@@ -40,9 +40,6 @@ const RouteWithSubRoutes = (route) => (
 
 export default class Routes extends React.Component {
     render(){
-        console.log(routes.map((route, i) => (
-            <RouteWithSubRoutes key={i} {...route}/>
-        )))
         return (
                 <div>
                     <Route exact path="/" component={Index}/>
