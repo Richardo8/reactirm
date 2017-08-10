@@ -190,7 +190,7 @@ class Publish extends Component {
                         }],
                     })(
                         <div className="editor-icon-height">
-                            <Ueditor id="content" />
+                            <Ueditor  id="content" />
                         </div>
                     )}
                 </FormItem>
