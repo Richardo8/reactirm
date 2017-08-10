@@ -15,10 +15,10 @@ class Main extends Component {
             <div className="App" style={{height: '100%'}}>
                 <Router>
                     <Layout style={{height: '100%'}}>
-                        <Header style={{ textAlign: 'center'}}>Header</Header>
-                        <Layout>
+                        <Header style={{ textAlign: 'center', position: 'fixed', width: '100%', zIndex: '2' }}>Header</Header>
+                        <Layout style={{ marginTop: 64}}>
                             <ThisMenu/>
-                            <Content>
+                            <Content style={{ overflowY: 'scroll' }}>
                                 <Routes/>
                             </Content>
                         </Layout>
