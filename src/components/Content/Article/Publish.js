@@ -5,6 +5,10 @@ import Ueditor from "../../Editor/Ueditor";
 // import '../../plugins/ueditor1_4_3/ueditor.all2.min'
 // import '../../plugins/ueditor1_4_3/ueditor.config'
 // import '../../plugins/ueditor1_4_3/lang/zh-cn/zh-cn'
+// require('../../plugins/ueditor1_4_3/ueditor.config');
+// require('../../plugins/ueditor1_4_3/ueditor.all2.min');
+// require('../../plugins/ueditor1_4_3/lang/zh-cn/zh-cn');
+
 const { TextArea } = Input
 const FormItem = Form.Item;
 

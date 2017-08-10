@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+// require('../plugins/ueditor1_4_3/ueditor.config');
+// require('../plugins/ueditor1_4_3/ueditor.all2.min');
+// require('../plugins/ueditor1_4_3/lang/zh-cn/zh-cn');
 const {UE} = window
 
 class Ueditor extends Component {
