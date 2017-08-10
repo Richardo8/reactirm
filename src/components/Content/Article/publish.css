@@ -20,3 +20,9 @@
     font-size: 28px;
     color: #999;
 }
+
+.ant-form-item-control {
+    line-height: 20px !important;
+    position: relative;
+    zoom: 1;
+}

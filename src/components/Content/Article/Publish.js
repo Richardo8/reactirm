@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Form, Input, Icon, Cascader, Button, Upload, message } from 'antd';
+import { Form, Input, Icon, Cascader, Button, Upload, message, Row, Col } from 'antd';
 import './publish.css'
 import Ueditor from "../../Editor/Ueditor";
+
 // import '../../plugins/ueditor1_4_3/ueditor.all2.min'
 // import '../../plugins/ueditor1_4_3/ueditor.config'
 // import '../../plugins/ueditor1_4_3/lang/zh-cn/zh-cn'
@@ -178,20 +179,26 @@ class Publish extends Component {
                         <TextArea rows={4} onBlur={this.handleConfirmBlur} />
                     )}
                 </FormItem>
-                {/*<FormItem*/}
-                    {/*{...formItemLayout}*/}
-                    {/*label="正文"*/}
-                    {/*hasFeedback*/}
-                {/*>*/}
-                    {/*{getFieldDecorator('正文', {*/}
-                        {/*rules: [{*/}
-                            {/*required: true, message: '请输入正文!',*/}
-                        {/*}],*/}
-                    {/*})(*/}
+                <FormItem
+                    {...formItemLayout}
+                    label="正文"
+                    hasFeedback
+                >
+                    {getFieldDecorator('正文', {
+                        rules: [{
+                            required: true, message: '请输入正文!',
+                        }],
+                    })(
+                        <Ueditor id="content" />
+                    )}
+                </FormItem>
+
+                {/*<Row>*/}
+                    {/*<Col span={12} offset={6}>*/}
                         {/*<Ueditor id="content" />*/}
-                    {/*)}*/}
-                {/*</FormItem>*/}
-                <Ueditor id="content" />
+
+                    {/*</Col>*/}
+                {/*</Row>*/}
                 <FormItem {...tailFormItemLayout}>
                     <Button type="primary" htmlType="submit">发布</Button>
                 </FormItem>
