@@ -178,19 +178,20 @@ class Publish extends Component {
                         <TextArea rows={4} onBlur={this.handleConfirmBlur} />
                     )}
                 </FormItem>
-                <FormItem
-                    {...formItemLayout}
-                    label="正文"
-                    hasFeedback
-                >
-                    {getFieldDecorator('正文', {
-                        rules: [{
-                            required: true, message: '请输入正文!',
-                        }],
-                    })(
-                        <Ueditor id="content" />
-                    )}
-                </FormItem>
+                {/*<FormItem*/}
+                    {/*{...formItemLayout}*/}
+                    {/*label="正文"*/}
+                    {/*hasFeedback*/}
+                {/*>*/}
+                    {/*{getFieldDecorator('正文', {*/}
+                        {/*rules: [{*/}
+                            {/*required: true, message: '请输入正文!',*/}
+                        {/*}],*/}
+                    {/*})(*/}
+                        {/*<Ueditor id="content" />*/}
+                    {/*)}*/}
+                {/*</FormItem>*/}
+                <Ueditor id="content" />
                 <FormItem {...tailFormItemLayout}>
                     <Button type="primary" htmlType="submit">发布</Button>
                 </FormItem>
