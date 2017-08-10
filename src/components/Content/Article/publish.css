@@ -21,8 +21,6 @@
     color: #999;
 }
 
-.ant-form-item-control {
+.editor-icon-height {
     line-height: 20px !important;
-    position: relative;
-    zoom: 1;
 }

@@ -189,7 +189,9 @@ class Publish extends Component {
                             required: true, message: '请输入正文!',
                         }],
                     })(
-                        <Ueditor id="content" />
+                        <div className="editor-icon-height">
+                            <Ueditor id="content" />
+                        </div>
                     )}
                 </FormItem>
 
