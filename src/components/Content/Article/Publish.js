@@ -97,14 +97,37 @@ class Publish extends Component {
             'editor-error': editorErr
         })
 
+        // 样式使用方法：labelCol是左侧名称的宽度，wrapperCol是右侧输入框的宽度，xs，sm，xl是根据屏幕宽度设置占块数量来确定宽度
         const formItemLayout = {
             labelCol: {
                 xs: { span: 24 },
-                sm: { span: 6 },
+                sm: { span: 4 },
             },
             wrapperCol: {
                 xs: { span: 24 },
                 sm: { span: 14 },
+            },
+        };
+        const formPicLayout = {
+            labelCol: {
+                xs: { span: 24 },
+                sm: { span: 4 },
+            },
+            wrapperCol: {
+                xs: { span: 24 },
+                sm: { span: 8 },
+            },
+        };
+        const formEditorLayout = {
+            labelCol: {
+                xs: { span: 24 },
+                sm: { span: 4 },
+                xl: { span: 4 },
+            },
+            wrapperCol: {
+                xs: { span: 24 },
+                sm: { span: 20 },
+                xl: { span: 17 }
             },
         };
         const tailFormItemLayout = {
@@ -160,7 +183,7 @@ class Publish extends Component {
                     )}
                 </FormItem>
                 <FormItem
-                    {...formItemLayout}
+                    {...formPicLayout}
                     label="封面图上传"
                     hasFeedback
                 >
@@ -199,7 +222,7 @@ class Publish extends Component {
                     )}
                 </FormItem>
                 <FormItem
-                    {...formItemLayout}
+                    {...formEditorLayout}
                     label="正文"
                     hasFeedback
                 >
