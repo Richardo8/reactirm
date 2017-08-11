@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Form, Input, Icon, Cascader, Button, Upload, message, Row, Col } from 'antd';
 import './publish.css'
 import Ueditor from "../../Editor/Ueditor";
+import classNames from 'classnames'
+const { UE } = window
 
 // import '../../plugins/ueditor1_4_3/ueditor.all2.min'
 // import '../../plugins/ueditor1_4_3/ueditor.config'
@@ -53,12 +55,24 @@ class Publish extends Component {
     state = {
         confirmDirty: false,
         autoCompleteResult: [],
+        editorErr: false
     };
     handleSubmit = (e) => {
         e.preventDefault();
+        const content = UE.getEditor('content').getContent();
+        this.props.form.setFieldsValue({
+            正文: content,
+        });
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
+                this.setState({ editorErr: false })
+            } else {
+                console.log(err)
+                if(err.正文 && err.正文.errors){
+                    console.log('err')
+                    this.setState({ editorErr: true })
+                }
             }
         });
     }
@@ -77,6 +91,11 @@ class Publish extends Component {
     render() {
         const { getFieldDecorator } = this.props.form;
         const imageUrl = this.state.imageUrl;
+        const editorErr = this.state.editorErr;
+        const editorClass = classNames({
+            'editor-icon-height': true,
+            'editor-error': editorErr
+        })
 
         const formItemLayout = {
             labelCol: {
@@ -189,10 +208,13 @@ class Publish extends Component {
                             required: true, message: '请输入正文!',
                         }],
                     })(
-                        <div className="editor-icon-height">
-                            <Ueditor  id="content" />
-                        </div>
+                        <Col span={0}>
+                            <TextArea />
+                        </Col>
                     )}
+                        <div className={editorClass}>
+                            <Ueditor id="content" />
+                        </div>
                 </FormItem>
 
                 {/*<Row>*/}

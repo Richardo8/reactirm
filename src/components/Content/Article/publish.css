@@ -24,3 +24,7 @@
 .editor-icon-height {
     line-height: 20px !important;
 }
+
+.editor-error #edui1 {
+    border-color: #f04134;
+}
