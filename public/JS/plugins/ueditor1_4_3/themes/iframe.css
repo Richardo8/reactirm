@@ -21,3 +21,36 @@ body {
     border: 0 none;
     height: 100%;
 }
+
+
+html::-webkit-scrollbar {
+    width:2px;
+    height:2px;
+}
+html::-webkit-scrollbar-button    {
+    background-color:#fff;
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    opacity: 0;
+    display: none;
+}
+html::-webkit-scrollbar-track     {
+    background:#fff;
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    opacity: 0;
+}
+
+html::-webkit-scrollbar-thumb{
+    background:#dedede;
+    border-radius:6px;
+    filter: alpha(opacity=20);
+    -moz-opacity: 0.2;
+    opacity: 0.2;
+}
+html::-webkit-scrollbar-corner {
+    background:#82AFFF;
+}
+html::-webkit-scrollbar-resizer  {
+    background:#FF0BEE;
+}
