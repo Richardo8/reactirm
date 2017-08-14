@@ -105,7 +105,7 @@ class Publish extends Component {
             },
             wrapperCol: {
                 xs: { span: 24 },
-                sm: { span: 14 },
+                sm: { span: 10 },
             },
         };
         const formPicLayout = {
@@ -145,100 +145,104 @@ class Publish extends Component {
 
         return (
             <Form className="FormMaxWidth" onSubmit={this.handleSubmit}>
-                <FormItem
-                    {...formItemLayout}
-                    label="文章标题"
-                    hasFeedback
-                >
-                    {getFieldDecorator('文章标题', {
-                        rules: [{
-                            required: true, message: '请输入文章标题!',
-                        }],
-                    })(
-                        <Input />
-                    )}
-                </FormItem>
-                <FormItem
-                    {...formItemLayout}
-                    label="频道栏目"
-                >
-                    {getFieldDecorator('频道栏目', {
-                        initialValue: ['a'],
-                        rules: [{ type: 'array', required: true, message: '请选择频道栏目！' }],
-                    })(
-                        <Cascader options={residences} />
-                    )}
-                </FormItem>
-                <FormItem
-                    {...formItemLayout}
-                    label="作者来源"
-                    hasFeedback
-                >
-                    {getFieldDecorator('作者来源', {
-                        rules: [{
-                            required: true, message: '请输入作者来源!',
-                        }],
-                    })(
-                        <Input type="text"/>
-                    )}
-                </FormItem>
-                <FormItem
-                    {...formPicLayout}
-                    label="封面图上传"
-                    hasFeedback
-                >
-                    {getFieldDecorator('封面图上传', {
-                        rules: [{
-                            required: true, message: '请上传封面图!',
-                        }],
-                    })(
-                        <Upload
-                            className="avatar-uploader"
-                            name="avatar"
-                            showUploadList={false}
-                            action="//jsonplaceholder.typicode.com/posts/"
-                            beforeUpload={beforeUpload}
-                            onChange={this.handleChange}
-                        >
-                            {
-                                imageUrl ?
-                                    <img src={imageUrl} alt="" className="avatar" /> :
-                                    <Icon type="plus" className="avatar-uploader-trigger" />
-                            }
-                        </Upload>
-                    )}
-                </FormItem>
-                <FormItem
-                    {...formItemLayout}
-                    label="摘要"
-                    hasFeedback
-                >
-                    {getFieldDecorator('摘要', {
-                        rules: [{
-                            required: true, message: '请输入摘要!',
-                        }],
-                    })(
-                        <TextArea rows={4} onBlur={this.handleConfirmBlur} />
-                    )}
-                </FormItem>
-                <FormItem
-                    {...formEditorLayout}
-                    label="正文"
-                    hasFeedback
-                >
-                    {getFieldDecorator('正文', {
-                        rules: [{
-                            required: true, message: '请输入正文!',
-                        }],
-                    })(
-                        <Col span={0}>
-                            <TextArea />
-                        </Col>
-                    )}
+                <Col span={10} offset={2}>
+                    <FormItem
+                        {...formItemLayout}
+                        // label="文章标题"
+                        hasFeedback
+                    >
+                        {getFieldDecorator('文章标题', {
+                            rules: [{
+                                required: true, message: '请输入文章标题!',
+                            }],
+                        })(
+                            <Input />
+                        )}
+                    </FormItem>
+                    <FormItem
+                        {...formItemLayout}
+                        // label="频道栏目"
+                    >
+                        {getFieldDecorator('频道栏目', {
+                            initialValue: ['a'],
+                            rules: [{ type: 'array', required: true, message: '请选择频道栏目！' }],
+                        })(
+                            <Cascader options={residences} />
+                        )}
+                    </FormItem>
+                    <FormItem
+                        {...formItemLayout}
+                        // label="作者来源"
+                        hasFeedback
+                    >
+                        {getFieldDecorator('作者来源', {
+                            rules: [{
+                                required: true, message: '请输入作者来源!',
+                            }],
+                        })(
+                            <Input type="text"/>
+                        )}
+                    </FormItem>
+                    <FormItem
+                        {...formPicLayout}
+                        // label="封面图上传"
+                        hasFeedback
+                    >
+                        {getFieldDecorator('封面图上传', {
+                            rules: [{
+                                required: true, message: '请上传封面图!',
+                            }],
+                        })(
+                            <Upload
+                                className="avatar-uploader"
+                                name="avatar"
+                                showUploadList={false}
+                                action="//jsonplaceholder.typicode.com/posts/"
+                                beforeUpload={beforeUpload}
+                                onChange={this.handleChange}
+                            >
+                                {
+                                    imageUrl ?
+                                        <img src={imageUrl} alt="" className="avatar" /> :
+                                        <Icon type="plus" className="avatar-uploader-trigger" />
+                                }
+                            </Upload>
+                        )}
+                    </FormItem>
+                    <FormItem
+                        {...formItemLayout}
+                        // label="摘要"
+                        hasFeedback
+                    >
+                        {getFieldDecorator('摘要', {
+                            rules: [{
+                                required: true, message: '请输入摘要!',
+                            }],
+                        })(
+                            <TextArea rows={4} onBlur={this.handleConfirmBlur} />
+                        )}
+                    </FormItem>
+                </Col>
+                <Col span={12}>
+                    <FormItem
+                        {...formEditorLayout}
+                        // label="正文"
+                        hasFeedback
+                    >
+                        {getFieldDecorator('正文', {
+                            rules: [{
+                                required: true, message: '请输入正文!',
+                            }],
+                        })(
+                            <Col span={0}>
+                                <TextArea />
+                            </Col>
+                        )}
                         <div className={editorClass}>
                             <Ueditor id="content" />
                         </div>
-                </FormItem>
+                    </FormItem>
+                </Col>
 
                 {/*<Row>*/}
                     {/*<Col span={12} offset={6}>*/}
