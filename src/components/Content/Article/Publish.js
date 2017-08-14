@@ -55,8 +55,17 @@ class Publish extends Component {
     state = {
         confirmDirty: false,
         autoCompleteResult: [],
-        editorErr: false
+        editorErr: false,
+        editorContent: ''
     };
+    componentDidMount(){
+        UE.getEditor('content').addListener("contentChange", () => {
+            let editorContent = UE.getEditor('content').getContent()
+            this.setState({
+                editorContent
+            })
+        })
+    }
     handleSubmit = (e) => {
         e.preventDefault();
         const content = UE.getEditor('content').getContent();
@@ -72,6 +81,8 @@ class Publish extends Component {
                 if(err.正文 && err.正文.errors){
                     console.log('err')
                     this.setState({ editorErr: true })
+                }else {
+                    this.setState({ editorErr: false })
                 }
             }
         });
@@ -92,6 +103,8 @@ class Publish extends Component {
         const { getFieldDecorator } = this.props.form;
         const imageUrl = this.state.imageUrl;
         const editorErr = this.state.editorErr;
+        console.log(editorErr)
+        const editorContent = this.state.editorContent
         const editorClass = classNames({
             'editor-icon-height': true,
             'editor-error': editorErr
@@ -236,7 +249,7 @@ class Publish extends Component {
                                 }],
                             })(
                                 <Col span={0}>
-                                    <TextArea />
+                                    <TextArea value={editorContent}/>
                                 </Col>
                             )}
                             <div className={editorClass}>
