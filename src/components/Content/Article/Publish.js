@@ -105,7 +105,7 @@ class Publish extends Component {
             },
             wrapperCol: {
                 xs: { span: 24 },
-                sm: { span: 10 },
+                sm: { span: 15 },
             },
         };
         const formPicLayout = {
@@ -115,7 +115,7 @@ class Publish extends Component {
             },
             wrapperCol: {
                 xs: { span: 24 },
-                sm: { span: 8 },
+                sm: { span: 10 },
             },
         };
         const formEditorLayout = {
@@ -127,7 +127,7 @@ class Publish extends Component {
             wrapperCol: {
                 xs: { span: 24 },
                 sm: { span: 20 },
-                xl: { span: 17 }
+                xl: { span: 21 }
             },
         };
         const tailFormItemLayout = {
@@ -146,7 +146,7 @@ class Publish extends Component {
         return (
             <Form className="FormMaxWidth" onSubmit={this.handleSubmit}>
                 <Row>
-                    <Col span={10} offset={2}>
+                    <Col span={11} offset={1}>
                         <FormItem
                             {...formItemLayout}
                             // label="文章标题"
@@ -157,7 +157,7 @@ class Publish extends Component {
                                     required: true, message: '请输入文章标题!',
                                 }],
                             })(
-                                <Input />
+                                <Input placeholder="请输入文章标题"/>
                             )}
                         </FormItem>
                         <FormItem
@@ -181,7 +181,7 @@ class Publish extends Component {
                                     required: true, message: '请输入作者来源!',
                                 }],
                             })(
-                                <Input type="text"/>
+                                <Input type="text" placeholder="请输入作者来源"/>
                             )}
                         </FormItem>
                         <FormItem
@@ -220,7 +220,7 @@ class Publish extends Component {
                                     required: true, message: '请输入摘要!',
                                 }],
                             })(
-                                <TextArea rows={4} onBlur={this.handleConfirmBlur} />
+                                <TextArea rows={4} onBlur={this.handleConfirmBlur}  placeholder="请输入摘要"/>
                             )}
                         </FormItem>
                     </Col>
