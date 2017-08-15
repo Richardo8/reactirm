@@ -9,6 +9,7 @@
 # production
 /build
 /.idea
+/public/Pic
 
 # misc
 .DS_Store
