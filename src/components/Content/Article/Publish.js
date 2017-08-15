@@ -56,14 +56,24 @@ class Publish extends Component {
         confirmDirty: false,
         autoCompleteResult: [],
         editorErr: false,
-        editorContent: ''
     };
     componentDidMount(){
+        // 在组件全部绑定之后，添加监听器，监听编辑器输入事件，获取到数据之后直接使用setFieldsValue方法设置输入框内的值，不要使用value，会失效
         UE.getEditor('content').addListener("contentChange", () => {
             let editorContent = UE.getEditor('content').getContent()
-            this.setState({
-                editorContent
-            })
+            console.log(editorContent)
+            this.props.form.setFieldsValue({
+                正文: editorContent,
+            });
+            if(editorContent === ''){
+                this.props.form.setFields({
+                    正文: {
+                        errors: [
+                            new Error('请输入正文！')
+                        ]
+                    }
+                })
+            }
         })
     }
     handleSubmit = (e) => {
@@ -99,11 +109,16 @@ class Publish extends Component {
         }
     }
 
+    handleClick = () => {
+        this.props.form.setFieldsValue({
+            摘要: '',
+        });
+    }
+
     render() {
         const { getFieldDecorator } = this.props.form;
         const imageUrl = this.state.imageUrl;
         const editorErr = this.state.editorErr;
-        console.log(editorErr)
         const editorContent = this.state.editorContent
         const editorClass = classNames({
             'editor-icon-height': true,
@@ -233,8 +248,9 @@ class Publish extends Component {
                                     required: true, message: '请输入摘要!',
                                 }],
                             })(
-                                <TextArea rows={4} onBlur={this.handleConfirmBlur}  placeholder="请输入摘要"/>
+                                <TextArea rows={4} onBlur={this.handleConfirmBlur} placeholder="请输入摘要"/>
                             )}
+                            <Button onClick={this.handleClick}/>
                         </FormItem>
                     </Col>
                     <Col span={12}>
@@ -248,9 +264,7 @@ class Publish extends Component {
                                     required: true, message: '请输入正文!',
                                 }],
                             })(
-                                <Col span={0}>
-                                    <TextArea value={editorContent}/>
-                                </Col>
+                                    <TextArea onBlur={this.handleConfirmBlur}/>
                             )}
                             <div className={editorClass}>
                                 <Ueditor id="content" />
