@@ -88,6 +88,15 @@ class Publish extends Component {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
+                this.setState({ editorErr: false })
+            } else {
+                console.log(err)
+                if(err.正文 && err.正文.errors){
+                    console.log('err')
+                    this.setState({ editorErr: true })
+                }else {
+                    this.setState({ editorErr: false })
+                }
             }
         });
     }
