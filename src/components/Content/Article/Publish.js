@@ -107,7 +107,6 @@ class Publish extends Component {
         const { getFieldDecorator } = this.props.form;
         const imageUrl = this.state.imageUrl;
         const editorErr = this.state.editorErr;
-        const editorContent = this.state.editorContent
         const editorClass = classNames({
             'editor-icon-height': true,
             'editor-error': editorErr
