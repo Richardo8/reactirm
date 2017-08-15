@@ -73,27 +73,22 @@ class Publish extends Component {
                         ]
                     }
                 })
+                this.setState({
+                    editorErr: true
+                })
+            } else {
+                this.setState({
+                    editorErr: false
+                })
             }
         })
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        const content = UE.getEditor('content').getContent();
-        this.props.form.setFieldsValue({
-            正文: content,
-        });
+
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
-                this.setState({ editorErr: false })
-            } else {
-                console.log(err)
-                if(err.正文 && err.正文.errors){
-                    console.log('err')
-                    this.setState({ editorErr: true })
-                }else {
-                    this.setState({ editorErr: false })
-                }
             }
         });
     }
@@ -107,12 +102,6 @@ class Publish extends Component {
             // Get this url from response in real world.
             getBase64(info.file.originFileObj, imageUrl => this.setState({ imageUrl }));
         }
-    }
-
-    handleClick = () => {
-        this.props.form.setFieldsValue({
-            摘要: '',
-        });
     }
 
     render() {
@@ -250,7 +239,6 @@ class Publish extends Component {
                             })(
                                 <TextArea rows={4} onBlur={this.handleConfirmBlur} placeholder="请输入摘要"/>
                             )}
-                            <Button onClick={this.handleClick}/>
                         </FormItem>
                     </Col>
                     <Col span={12}>
@@ -264,7 +252,9 @@ class Publish extends Component {
                                     required: true, message: '请输入正文!',
                                 }],
                             })(
+                                <Col span={0}>
                                     <TextArea onBlur={this.handleConfirmBlur}/>
+                                </Col>
                             )}
                             <div className={editorClass}>
                                 <Ueditor id="content" />
