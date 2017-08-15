@@ -61,7 +61,6 @@ class Publish extends Component {
         // 在组件全部绑定之后，添加监听器，监听编辑器输入事件，获取到数据之后直接使用setFieldsValue方法设置输入框内的值，不要使用value，会失效
         UE.getEditor('content').addListener("contentChange", () => {
             let editorContent = UE.getEditor('content').getContent()
-            console.log(editorContent)
             this.props.form.setFieldsValue({
                 正文: editorContent,
             });
