@@ -56,6 +56,7 @@ class Publish extends Component {
         confirmDirty: false,
         autoCompleteResult: [],
         editorErr: false,
+        // imageUrl: '/static/images/bf05f982gy1fhdwek5hs1j21jk0v9x6p.jpg'
     };
     componentDidMount(){
         // 在组件全部绑定之后，添加监听器，监听编辑器输入事件，获取到数据之后直接使用setFieldsValue方法设置输入框内的值，不要使用value，会失效
@@ -107,8 +108,13 @@ class Publish extends Component {
 
     handleChange = (info) => {
         if (info.file.status === 'done') {
+            console.log(info)
+            const imageUrl = `http://localhost:3000/${info.file.response}`
+            this.setState({
+                imageUrl
+            })
             // Get this url from response in real world.
-            getBase64(info.file.originFileObj, imageUrl => this.setState({ imageUrl }));
+            // getBase64(info.file.originFileObj, imageUrl => this.setState({ imageUrl }));
         }
     }
 
@@ -213,7 +219,7 @@ class Publish extends Component {
                             // label="封面图上传"
                             hasFeedback
                         >
-                            {getFieldDecorator('封面图上传', {
+                            {getFieldDecorator('file', {
                                 rules: [{
                                     required: true, message: '请上传封面图!',
                                 }],
@@ -222,7 +228,7 @@ class Publish extends Component {
                                     className="avatar-uploader"
                                     name="avatar"
                                     showUploadList={false}
-                                    action="//jsonplaceholder.typicode.com/posts/"
+                                    action="/upload"
                                     beforeUpload={beforeUpload}
                                     onChange={this.handleChange}
                                 >
